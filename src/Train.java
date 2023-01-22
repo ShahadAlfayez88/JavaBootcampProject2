@@ -1,7 +1,7 @@
 public class Train extends Trip{
 
     public int calculateDuration() {
-
+        String minute ="";
         // Full Duration
         double duration = super.getDistance()/super.getSpeed();
 
@@ -9,8 +9,10 @@ public class Train extends Trip{
         double x = duration - Math.floor(duration);
 
         String hour = String.format("0%d", (int)duration);
-
-        String minute = String.format("%.0f",x*60);
+        if(x<=0.15) {
+            minute = String.format("0%.0f", x * 60);
+        } else{
+            minute = String.format("%.0f", x * 60);}
 
         String totalDistance = (hour+minute);
         return Integer.parseInt(totalDistance);

@@ -59,7 +59,6 @@ public abstract class Trip {
             minute = String.format("%.0f", x * 60);}
 
         String totalDistance = (hour+":"+minute);
-        System.out.print("And we will arrive at "+hour+":"+minute);
         return totalDistance;
     }
 

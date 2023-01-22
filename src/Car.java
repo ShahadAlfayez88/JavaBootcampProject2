@@ -55,19 +55,20 @@ public class Car extends Trip{
         String hour = "";
 
         // Full Duration
-        double duration = super.getDistance()/super.getSpeed(); // 4
+        double duration = super.getDistance()/super.getSpeed();
 
         // Stops Additional Minutes
-        double AddtionalMinutes = stopDuration*NoOfStops; // 60
+        double AddtionalMinutes = stopDuration*NoOfStops;
 
-        String z = String.format("0.%.00f", AddtionalMinutes); // 0.60
+        double mintohour =AddtionalMinutes/60;
 
-        duration += Double.parseDouble(z); // 4 + 0.60 = 5
+        duration += mintohour ; // 4 + 0.60 = 4.60
 
         // Decimal points
 
-        double x = duration - Math.floor(duration);
-        hour = String.format("0%d", (int) duration + (int) (AddtionalMinutes * 1 / 60)); //4 + (60*1/60) = 5
+        double x = duration - Math.floor(duration); // 0,30
+
+        hour = String.format("0%d", (int) duration); //4 + (60*1/60) = 5
         boolean a = false;
         int addmintue = (int)(AddtionalMinutes * 1 / 60);
         if(addmintue==1){
@@ -75,7 +76,9 @@ public class Car extends Trip{
         }
         if(a==true) { // if converting additional min == one
             minute = String.format("%.0f0", x=0); // minutes = 00
-        } else if( x> 0 && x<100 ){
+        } else if(x<=0.15) {
+            minute = String.format("0%.0f", x * 60);
+        } else if( x> 0.15 && x<100 ){
             minute = String.format("%.0f", x * 60);
         }
         String totalDistance = (hour+minute);
