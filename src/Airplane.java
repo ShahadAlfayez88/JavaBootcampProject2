@@ -17,7 +17,6 @@ public class Airplane extends Trip{
              minute = String.format("%.0f", x * 60);}
 
         String totalDistance = (hour+minute);
-        System.out.print("And we will arrive at "+hour+":"+minute);
         return Integer.parseInt(totalDistance);
     }
 
@@ -27,7 +26,9 @@ public class Airplane extends Trip{
         return "The Flight Trip Number "+ super.getTripNumber()+" have started \n"+
                 "It will starts at "+super.getStartTime()+
                 "\nTrip Speed is "+super.getSpeed()+" km/h \n" +
-                "at a distance of "+super.getDistance()+" km" ;
+                "at a distance of "+super.getDistance()+" km" +
+                "\nAnd we will arrive at "+super.calculateArrivalTime();
+
 
 
     }

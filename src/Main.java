@@ -11,7 +11,7 @@ public class Main {
         c1.setStopDuration(30);
         System.out.println(c1.Display());
         c1.calculateDuration();
-        System.out.println("\nFuel Consumption");
+        System.out.println("\n\nFuel Consumption");
         c1.setFuel(20);
         c1.FuelConsumption();
 
@@ -22,7 +22,6 @@ public class Main {
         t1.setSpeed(89.0);
         t1.setStartTime("00:00");
         System.out.println(t1.Display());
-        t1.calculateDuration();
 
         System.out.println("\n\nAirplane Trip");
         Airplane a1 = new Airplane();
@@ -31,6 +30,5 @@ public class Main {
         a1.setSpeed(700);
         a1.setStartTime("00:00");
         System.out.println(a1.Display());
-        a1.calculateDuration();
     }
 }

@@ -44,7 +44,23 @@ public abstract class Trip {
     }
 
     public String calculateArrivalTime(){
-        return "";
+        String minute = "";
+        // Full Duration
+        double duration = getDistance()/getSpeed();
+
+        // Decimal points
+        double x = duration - Math.floor(duration);
+
+        String hour = String.format("0%d", (int)duration);
+
+        if(x<=0.15) {
+             minute = String.format("0%.0f", x * 60);
+        } else{
+            minute = String.format("%.0f", x * 60);}
+
+        String totalDistance = (hour+":"+minute);
+        System.out.print("And we will arrive at "+hour+":"+minute);
+        return totalDistance;
     }
 
 }
